@@ -62,6 +62,12 @@ def pdf_to_images(filename, dpi, experiment):
         images = pdf2image.convert_from_path(filename, fmt='png', dpi=dpi)
         for i, image in enumerate(images):
             fp = os.path.join(dirname, f'page_{i}.png')
+
+            osd = pytesseract.image_to_osd(image, output_type='dict')
+            rotacao = -osd['rotate']
+            if rotacao != 0:
+                image = image.rotate(rotacao, expand = True)
+            
             image.save(fp)
     except Exception as e:
         logger.exception("ERRO NA FUNÇÃO pdf_to_images")
