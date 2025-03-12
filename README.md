@@ -1,4 +1,4 @@
-# Tormenta #
+# Extração da REGIS #
 PDF Image and text extraction, we use [VGT](https://github.com/AlibabaResearch/AdvancedLiterateMachinery/tree/main/DocumentUnderstanding/VGT) to analyze the page layout generating bounding boxes for each page element. 
 Then different tools are used to extract both images and texts from each page.
 
